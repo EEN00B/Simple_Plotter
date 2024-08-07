@@ -1,6 +1,14 @@
 # Simple_Plotter
 A python script to print CSV to line curves using pyqtgraph
 
+Pan, Zoom, Drag, and many more.
+
+Tested with 8 columns of 1.3 million data points each column.
+
+The code is pretty self-explanatory 
+
+===============================================================
+
 ![Screenshot 2024-08-07 164003](https://github.com/user-attachments/assets/49a9bdb0-4678-49f3-984a-8989f11b8378)
 ![Screenshot 2024-08-07 164455](https://github.com/user-attachments/assets/848836ea-614a-47d4-ab3a-d87067f84497)
 ![Screenshot 2024-08-07 164426](https://github.com/user-attachments/assets/18eba1fe-d58d-4473-bf89-c903bc784e29)

@@ -5,8 +5,8 @@ import pandas as pd
 # print(sys.version)
 
 column_to_plot = [1] #specify which columns to plot, up to 7, index start from 0
-scaling_factor = [1, 1, 1, 1, 0.01, 0.1, 1, 1]
-offset = [0, 0, 0, 0, 0, 50, 0, 0]
+scaling_factor = [1, 1, 1, 1, 1, 1, 1, 1]
+offset = [0, 0, 0, 0, 0, 0, 0, 0]
 line_colour = ['g', 'b', 'r', 'c', 'm', 'r', 'k', 'g']
 ##################################### Read CSV file ###################################################
 

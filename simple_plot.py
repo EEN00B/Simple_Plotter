@@ -7,7 +7,8 @@ import pandas as pd
 column_to_plot = [1] #specify which columns to plot, up to 7, index start from 0
 scaling_factor = [1, 1, 1, 1, 1, 1, 1, 1]
 offset = [0, 0, 0, 0, 0, 0, 0, 0]
-line_colour = ['g', 'b', 'r', 'c', 'm', 'r', 'k', 'g']
+line_colour = [(39, 64, 1), (130, 138, 0), (242, 159, 5), (242, 92, 5),
+               (214, 86, 140), (77, 133, 132), (166, 47, 3), (64, 13, 1)]
 ##################################### Read CSV file ###################################################
 
 csv_data= pd.read_csv("sample_log.csv")

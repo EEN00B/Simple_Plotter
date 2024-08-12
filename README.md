@@ -1,12 +1,12 @@
 # Simple_Plotter
 A python script to print CSV to line curves using pyqtgraph
 
-Live-interaction, < br / >
-Zoom, Pan, < br / >
-Drag, < br / >
-Crosshair, < br / >
-Data Points when zoomed in < br / >
-and many more. < br / >
+Live-interaction, <br />
+Zoom, Pan, <br />
+Drag, <br />
+Crosshair, <br />
+Data Points when zoomed in <br />
+and many more. <br />
 
 The Crosshair and Data Points feature would make things a bit slow but still acceptable.
 

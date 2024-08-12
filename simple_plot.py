@@ -1,9 +1,11 @@
 # import sys
 import pyqtgraph as pg
 import pandas as pd
+from pyqtgraph.Qt import QtGui, QtCore
 
 # print(sys.version)
 
+##################################### User Configs ###################################################
 column_to_plot = [1,2,3,4,5,6,7,8] #specify which columns to plot, up to 8 columns, index start from 0
 scaling_factor = [1, 1, 1, 1, 1, 1, 1, 1] #scaling factor to apply later
 offset = [0, 0, 0, 0, 0, 0, 0, 0] #offset to apply later
@@ -52,12 +54,52 @@ plot_1.addLegend()  ### Legend can be dragged around with mouse
 for x in range(len(column_to_plot)):
     plot_1.plot(data_to_plot[x], pen = line_colour[x], name = column_names[column_to_plot[x]])
 
+
 ########################################################################################################
-##########################################   CROSSHAIR   ###############################################
+################################  Data Dots when zoomed in   ###########################################
+########################################################################################################
+
+# Add scatter plots (initially invisible)
+scatters = []
+for x in range(len(column_to_plot)):
+    scatter = pg.ScatterPlotItem(x=[i for i in range(len(data_to_plot[x]))], y=data_to_plot[x], 
+                                 pen=None, symbol='+', symbolSize=1, brush=line_colour[x])
+    plot_1.addItem(scatter)
+    scatter.setVisible(False)  # Start with scatter plot invisible
+    scatters.append(scatter)
+
+# Define zoom level threshold
+zoom_threshold = 200  # Change this value to suit your needs
+
+# Function to update scatter plot visibility based on zoom level
+def update_scatter_visibility():
+    # Get current range of the plot
+    range_x = plot_1.getViewBox().viewRange()[0]
+    range_y = plot_1.getViewBox().viewRange()[1]
+    
+    # Determine the zoom level
+    zoom_x = range_x[1] - range_x[0]
+    zoom_y = range_y[1] - range_y[0]
+    
+    # Toggle scatter plot visibility based on zoom level
+    for scatter in scatters:
+        if zoom_x < zoom_threshold and zoom_y < zoom_threshold:
+            scatter.setVisible(True)
+        else:
+            scatter.setVisible(False)
+
+# Connect the view range changed signal to the update function
+plot_1.getViewBox().sigRangeChanged.connect(update_scatter_visibility)
+
+
+########################################################################################################
+##########################################   CROSSAIR   ################################################
 ########################################################################################################
 
 vLine = pg.InfiniteLine(angle=90, movable=False)
 hLine = pg.InfiniteLine(angle=0, movable=False)
+vLine.setPen(pg.mkPen(color='black', width=1, style=QtCore.Qt.DotLine))  # Red dotted line for the vertical line
+hLine.setPen(pg.mkPen(color='black', width=1, style=QtCore.Qt.DotLine))
 plot_1.addItem(vLine, ignoreBounds=True)
 plot_1.addItem(hLine, ignoreBounds=True)
 

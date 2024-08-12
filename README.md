@@ -8,7 +8,11 @@ Crosshair, <br />
 Data Points when zoomed in <br />
 and many more. <br />
 
-The Crosshair and Data Points feature would make things a bit slow but still acceptable.
+The Data Points feature would make things a bit slow but still acceptable. <br />
+
+Without Data Points feature, it opens and plots the example file (1.3M data, 8 column) in ~560 millisecond.  <br />
+
+With Data Points feature, it takes ~2.8 second. <br />
 
 Check out the screenshots below.
 
